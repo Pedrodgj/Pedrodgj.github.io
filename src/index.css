@@ -1,0 +1,149 @@
+ * {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #2c3e55;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+.app {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  min-height: 100vh;
+  justify-content: center;
+  gap: 40px;
+}
+
+.rosco {
+  position: relative;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+}
+
+.letter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #4a90e2;
+  border: 3px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 40px;
+  border-width: 4px;
+  /* transition: all 0.2s ease; */
+  /* transition: box-shadow 0.25s ease, background-color 0.2s ease;
+  transform-origin: center; */
+
+  
+  
+  transform:
+    rotate(calc(var(--angle) - 90deg))
+    translate(var(--radius))
+    rotate(calc(90deg - var(--angle)));
+
+  transition: box-shadow 0.25s ease, background-color 0.2s ease
+
+}
+
+.letter.ok {
+  background: #2ecc71;
+}
+
+.letter.error {
+  background: #e74c3c;
+}
+
+.letter.pass {
+  background: #f1c40f;
+  color: #333;
+}
+
+/* .letter.active {
+  box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.8);
+  transform: scale(1.15) !important;
+  z-index: 10;
+} */
+
+.letter.active {
+  box-shadow:
+    0 0 0 4px rgba(255, 255, 255, 0.9),
+    0 0 18px 8px rgba(255, 255, 255, 0.7);
+  z-index: 10;
+}
+
+
+.center-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.controls {
+  /* margin-top: 40px; */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.controls button {
+  padding: 14px 22px;
+  font-weight: bold;
+  font-size: 15px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  min-width: 160px;
+}
+
+.controls .ok {
+  background: #2ecc71;
+}
+
+.controls .error {
+  background: #e74c3c;
+  color: white;
+}
+
+.controls .pass {
+  background: #f1c40f;
+}
+
+
+.timer {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 12px;
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+}
+
+.timer .time {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.timer button {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}

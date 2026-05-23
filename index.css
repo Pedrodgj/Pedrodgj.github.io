@@ -1,0 +1,154 @@
+ * {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #2c3e55;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  touch-action: manipulation;
+}
+
+.app {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  justify-content: center;
+  gap: 40px;
+  flex-direction: column; /* 👈 mobile-first */
+}
+
+@media (min-width: 768px) {
+  .app {
+    flex-direction: row;
+  }
+}
+
+
+.rosco {
+  
+  position: relative;
+  width: min(90vw, 500px);
+  height: min(90vw, 500px);
+  border-radius: 50%;
+
+}
+
+.letter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  
+  width: clamp(30px, 8vw, 70px);
+  height: clamp(30px, 8vw, 70px);
+  font-size: clamp(16px, 4vw, 40px);
+
+  border-radius: 50%;
+  background: #4a90e2;
+  border: 3px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-width: 4px;
+  
+  
+  transform:
+    rotate(calc(var(--angle) - 90deg))
+    translate(var(--radius))
+    rotate(calc(90deg - var(--angle)));
+
+  transition: box-shadow 0.25s ease, background-color 0.2s ease
+
+}
+
+.letter.ok {
+  background: #2ecc71;
+}
+
+.letter.error {
+  background: #e74c3c;
+}
+
+.letter.pass {
+  background: #f1c40f;
+  color: #333;
+}
+
+
+.letter.active {
+  box-shadow:
+    0 0 0 4px rgba(255, 255, 255, 0.9),
+    0 0 18px 8px rgba(255, 255, 255, 0.7);
+  z-index: 10;
+}
+
+
+.center-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.controls {
+  /* margin-top: 40px; */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.controls button {
+  
+  padding: clamp(10px, 3vw, 14px) clamp(14px, 4vw, 22px);
+  font-size: clamp(12px, 3vw, 15px);
+  min-width: clamp(120px, 40vw, 160px);
+
+  font-weight: bold;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.controls .ok {
+  background: #2ecc71;
+}
+
+.controls .error {
+  background: #e74c3c;
+  color: white;
+}
+
+.controls .pass {
+  background: #f1c40f;
+}
+
+
+.timer {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 12px;
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+}
+
+.timer .time {
+  font-size: clamp(16px, 4vw, 20px);
+  font-weight: bold;
+}
+
+.timer button {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
